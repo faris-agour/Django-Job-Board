@@ -8,10 +8,11 @@
     - Salary
     - Vacancy
     - Location
-    - Job Nature
+    - Job Type
     - Apply job
     - Post job
     - Description
+    - Experience
 
 ## Home
 ## Blog
