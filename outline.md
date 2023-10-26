@@ -4,14 +4,14 @@
 
     - Title
     - Category
-    - Published on
+    - Published at
     - Salary
     - Vacancy
     - Location
     - Job Nature
     - Apply job
     - Post job
-    - available
+    - Description
 
 ## Home
 ## Blog
