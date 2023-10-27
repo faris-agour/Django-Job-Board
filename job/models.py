@@ -1,10 +1,19 @@
 from django.db import models
 
 '''
-django model field :: give us
+django model field :: give us (models.Model)
+
 - a html widget
 - b validation
 - c db size
+'''
+
+'''
+relationships in django
+
+'one to many -    user --> posts    '' forinkey
+'many to many -  user --> groups 
+'one to one -    user --> profile
 '''
 
 # Create your models here.
@@ -22,9 +31,16 @@ class Job(models.Model):  # table
     vacancy = models.IntegerField(default=1)
     experience = models.IntegerField(default=0)
     salary = models.DecimalField(max_digits=6, decimal_places=2, default=100.00)
+    # create model first then migrate and add row the add this field that you had id = 1 use it when you run
+    category = models.ForeignKey('Category', on_delete=models.CASCADE )
 
     # location = models.CharField(max_length=104)
-    # category = models.CharField(max_length=104)
-
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
