@@ -23,6 +23,11 @@ JOP_TYPE = (
 )
 
 
+def img_upload(instance, filename):
+    imgname, ext = filename.split('.')
+    return f'jobs/{instance.id}.{ext}'
+
+
 class Job(models.Model):  # table
     title = models.CharField(max_length=104)  # column
     jop_type = models.CharField(max_length=104, choices=JOP_TYPE)
@@ -32,7 +37,8 @@ class Job(models.Model):  # table
     experience = models.IntegerField(default=0)
     salary = models.DecimalField(max_digits=6, decimal_places=2, default=100.00)
     # create model first then migrate and add row the add this field that you had id = 1 use it when you run
-    category = models.ForeignKey('Category', on_delete=models.CASCADE )
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=img_upload)
 
     # location = models.CharField(max_length=104)
     def __str__(self):
