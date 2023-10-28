@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>{{ jobs.count }}+ Jobs Available</h3>
+                        <h3>{{ j.count }}+ Jobs Available</h3>
                     </div>
                 </div>
             </div>
@@ -140,14 +140,14 @@
                                             background: white;
                                             margin-right: 33px;
                                             border: 3px solid white;">
-                                                    <a href="{% url 'jobs:job_details' job.id %}">
+                                                    <a href="{% url 'jobs:job_details' job.slug %}">
                                                         <img src="{{ job.image.url }}" alt=""
                                                              style="vertical-align: middle;width: 156px;height: 101px;
                                                              border: darkgrey 4px solid;border-radius: 11px">
                                                     </a>
                                                 </div>
                                                 <div class="jobs_conetent">
-                                                    <a href="{% url 'jobs:job_details' job.id %}"><h4>{{ job }}</h4></a>
+                                                    <a href="{% url 'jobs:job_details' job.slug %}"><h4>{{ job }}</h4></a>
                                                     <div class="links_locat d-flex align-items-center">
                                                         <div class="location">
                                                             <p><i class="fa fa-map-marker"></i> California, USA</p>

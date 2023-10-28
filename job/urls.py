@@ -3,5 +3,5 @@ from . import views
 app_name = 'jobs'
 urlpatterns = [
 path('', views.jobs),
-path('<int:id>',views.job_details,name = 'job_details'),
+path('<str:slug>',views.job_details,name = 'job_details'),
 ]

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
 '''
 django model field :: give us (models.Model)
 
@@ -39,8 +39,15 @@ class Job(models.Model):  # table
     # create model first then migrate and add row the add this field that you had id = 1 use it when you run
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     image = models.ImageField(upload_to=img_upload)
+    slug = models.SlugField(blank=True, null=True)
 
     # location = models.CharField(max_length=104)
+
+    # we will override save to get slug
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Job,self).save(*args, **kwargs)
+
     def __str__(self):
         return self.title
 
