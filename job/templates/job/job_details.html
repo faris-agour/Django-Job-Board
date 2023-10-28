@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>Software Engineer</h3>
+                        <h3>{{ job }}</h3>
                     </div>
                 </div>
             </div>
@@ -22,24 +22,32 @@
                     <div class="job_details_header">
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">
-                                <div class="thumb">
-                                    <img src="img/svg_icon/1.svg" alt="">
+                                <div class="thumb" style="float: left;
+                                width: 150px;
+                                height: 102px;
+                                border-radius: 20px;
+                                padding: 0;
+                                background: #F5F7FA;
+                                margin-right: 25px;
+                                border: 1px solid #F0F0F0;">
+                                    <img src="{{ job.image.url }}" alt="" style="vertical-align: middle;
+                                    border-style: none; width: 150px;height: 100px;border-radius: 13px;">
                                 </div>
                                 <div class="jobs_conetent">
-                                    <a href="#"><h4>Software Engineer</h4></a>
+                                    <a href="#"><h4>{{ job }}</h4></a>
                                     <div class="links_locat d-flex align-items-center">
                                         <div class="location">
                                             <p><i class="fa fa-map-marker"></i> California, USA</p>
                                         </div>
                                         <div class="location">
-                                            <p><i class="fa fa-clock-o"></i> Part-time</p>
+                                            <p><i class="fa fa-clock-o"></i>{{ job.jop_type }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="jobs_right">
                                 <div class="apply_now">
-                                    <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                    <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
                                 </div>
                             </div>
                         </div>
@@ -47,41 +55,7 @@
                     <div class="descript_wrap white-bg">
                         <div class="single_wrap">
                             <h4>Job description</h4>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don't
-                                look even slightly believable. If you are going to use a passage of Lorem Ipsum, you
-                                need to be sure there isn't anything embarrassing.</p>
-                            <p>Variations of passages of lorem Ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour, or randomised words which don't look even
-                                slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be
-                                sure there isn't anything embarrassing.</p>
-                        </div>
-                        <div class="single_wrap">
-                            <h4>Responsibility</h4>
-                            <ul>
-                                <li>The applicants should have experience in the following areas.
-                                </li>
-                                <li>Have sound knowledge of commercial activities.</li>
-                                <li>Leadership, analytical, and problem-solving abilities.</li>
-                                <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
-                            </ul>
-                        </div>
-                        <div class="single_wrap">
-                            <h4>Qualifications</h4>
-                            <ul>
-                                <li>The applicants should have experience in the following areas.
-                                </li>
-                                <li>Have sound knowledge of commercial activities.</li>
-                                <li>Leadership, analytical, and problem-solving abilities.</li>
-                                <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
-                            </ul>
-                        </div>
-                        <div class="single_wrap">
-                            <h4>Benefits</h4>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don't
-                                look even slightly believable. If you are going to use a passage of Lorem Ipsum, you
-                                need to be sure there isn't anything embarrassing.</p>
+                            <p>{{ job.description }}</p>
                         </div>
                     </div>
                     <div class="apply_job_form white-bg">
@@ -139,11 +113,11 @@
                         </div>
                         <div class="job_content">
                             <ul>
-                                <li>Published on: <span>12 Nov, 2019</span></li>
-                                <li>Vacancy: <span>2 Position</span></li>
-                                <li>Salary: <span>50k - 120k/y</span></li>
+                                <li>Published on: <span>{{ job.Published_at|date:'d F Y' }}</span></li>
+                                <li>Vacancy: <span>{{ job.vacancy }} Position</span></li>
+                                <li>Salary: <span>{{ job.salary }} $/y</span></li>
                                 <li>Location: <span>California, USA</span></li>
-                                <li>Job Nature: <span> Full-time</span></li>
+                                <li>Job Nature: <span> {{ job.jop_type }}</span></li>
                             </ul>
                         </div>
                     </div>
