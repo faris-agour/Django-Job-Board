@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
+
 '''
 django model field :: give us (models.Model)
 
@@ -29,6 +31,7 @@ def img_upload(instance, filename):
 
 
 class Job(models.Model):  # table
+    owner = models.ForeignKey(User, related_name='owner_job',on_delete=models.CASCADE)
     title = models.CharField(max_length=104)  # column
     jop_type = models.CharField(max_length=104, choices=JOP_TYPE)
     description = models.TextField(max_length=1000)
