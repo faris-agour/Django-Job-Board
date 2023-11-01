@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Logged out</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+ <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto" >
+                    <div class="apply_job_form white-bg">
+                    <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+        {% buttons %}
+            <button class="boxed-btn3 w-100" type="submit">Log in</button>
+        {% endbuttons %}
+    </form>
+                        <form method="post" action="{% url 'login' %}">
+        {% buttons %}
+            <button class="boxed-btn w-100" type="submit">Sign up</button>
+        {% endbuttons %}
+    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {# Assumes you setup the password_reset view in your URLconf #}
+
+
+
+{% endblock body %}

@@ -52,7 +52,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="">home</a></li>
+                                        <li><a href="{% url 'jobs:job_list' %}">home</a></li>
                                         <li><a href="job_list.html">Browse Job</a></li>
                                         <li><a href="#">pages <i class="fa fa-sort-desc" aria-hidden="true"></i></a>
                                             <ul class="submenu">
@@ -75,10 +75,10 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="phone_num d-none d-xl-block">
-                                    <a href="#">Log in</a>
+                                    <a href="{% url 'login' %}">Log in</a>
                                 </div>
                                 <div class="d-none d-lg-block">
-                                    <a class="boxed-btn3" href="add">Post a Job</a>
+                                    <a class="boxed-btn3" href="{% url 'jobs:post_job' %}">Post a Job</a>
                                 </div>
                             </div>
                         </div>
