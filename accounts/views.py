@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 
 from .froms import SignupForm
+from .models import Profile
 
 
 def signup(request):
@@ -14,8 +15,16 @@ def signup(request):
             password = form.cleaned_data('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('/accounts/profile')
+            return redirect('/profile/profile')
     else:
         form = SignupForm()
-    context = {"form": form}
-    return render(request, 'registration/signup.html', context)
+    return render(request, 'registration/signup.html', {"form": form})
+
+
+def profile(request):
+    profile = Profile.objects.get(user = request.user)
+    return render(request, 'profile/profile.html', {'profile': profile})
+
+
+def profile_edit(request):
+    pass

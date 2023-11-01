@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Profile</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="apply_job_form white-bg" style="border: chocolate 5px solid; border-radius: 12px">
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h2 style="padding-bottom: 12px">About Me</h2>
+
+                                    <p>Username : {{ profile.user.username }}</p>
+                                    <p>Full Name : {{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                                    <p>I am living in {{ profile.city }}</p>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h2 style="padding-bottom: 12px">Contact Information</h2>
+                                    <p>Email: {{ profile.user.email }}</p>
+                                    <p>Phone Number: {{ profile.phone }}</p>
+
+
+                                </div>
+
+                            </div>
+                            <form action="{% url 'accounts:profile_edit' %}">
+                                <div style="padding-top: 12px">
+                                    {% buttons %}
+                                        <button class="boxed-btn3 w-100" type="submit">Edit</button>
+                                    {% endbuttons %}
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# Assumes you setup the password_reset view in your URLconf #}
+
+
+{% endblock body %}

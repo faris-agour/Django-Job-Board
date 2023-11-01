@@ -59,7 +59,7 @@ feature.formdata = window.FormData !== undefined;
 var hasProp = !!$.fn.prop;
 
 // attr2 uses prop when it can but checks the return type for
-// an expected string.  this accounts for the case where a form 
+// an expected string.  this profile for the case where a form
 // contains inputs with names like "action" or "method"; in those
 // cases "prop" returns the element
 $.fn.attr2 = function() {
