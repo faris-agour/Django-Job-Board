@@ -34,8 +34,8 @@
 
                                 <div class="col-md-6">
                                     <h2 style="padding-bottom: 12px">Contact Information</h2>
-                                    <p>Email: {{ profile.user.email }}</p>
-                                    <p>Phone Number: {{ profile.phone }}</p>
+                                    <p>Email : {{ profile.user.email }}</p>
+                                    <p>Phone Number : {{ profile.phone }}</p>
 
 
                                 </div>
@@ -48,6 +48,13 @@
                                     {% endbuttons %}
                                 </div>
                             </form>
+                                                <form action="{% url 'logout' %}">
+                            <div style="padding-top: 12px">
+                                {% buttons %}
+                                    <button class="boxed-btn3-line w-100" type="submit">Log out</button>
+                                {% endbuttons %}
+                            </div>
+                        </form>
                         </div>
 
                     </div>
