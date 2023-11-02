@@ -24,14 +24,39 @@
     <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-{#    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">#}
-{#    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">#}
+    {#    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">#}
+    {#    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">#}
 
 
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        a:link {
+            color: dodgerblue;
 
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #898bec;
+
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00bd59;
+
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: yellow;
+
+            text-decoration: underline;
+        }
+
+    </style>
 
 </head>
 
@@ -48,35 +73,36 @@
             <div class="container-fluid ">
                 <div class="header_bottom_border">
                     <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
                         <div class="col-xl-6 col-lg-7">
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{% url 'jobs:job_list' %}">home</a></li>
-                                        <li><a href="job_list.html">Browse Job</a></li>
-                                        <li><a href="#">pages <i class="fa fa-sort-desc" aria-hidden="true"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="candidate.html">Candidates </a></li>
-                                                <li><a href="job_details.html">job details </a></li>
-                                                <li><a href="elements.html">elements</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">blog <i class="fa fa-sort-desc" aria-hidden="true"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="/">home</a></li>
+                                        <li><a href="{% url 'jobs:job_list' %}">Browse Job</a></li>
+                                        <li><a href="{% url 'contact:contact' %}">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
-                                <div class="phone_num d-none d-xl-block">
-                                    <a href="{% url 'login' %}">Log in</a>
-                                </div>
+                                {% if request.user.is_authenticated %}
+                                    <div class="phone_num d-none d-xl-block">
+                                        <a href="{% url 'accounts:profile' %}">{{ request.user.username }}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="phone_num d-none d-xl-block">
+                                        <a href="{% url 'login' %}">Log in</a>
+                                    </div>
+                                {% endif %}
+
                                 <div class="d-none d-lg-block">
                                     <a class="boxed-btn3" href="{% url 'jobs:post_job' %}">Post a Job</a>
                                 </div>
@@ -180,23 +206,23 @@
             </div>
         </div>
     </div>
-{#    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">#}
-{#        <div class="container">#}
-{#            <div class="footer_border"></div>#}
-{#            <div class="row">#}
-{#                <div class="col-xl-12">#}
-{#                    <p class="copy_right text-center">#}
-{#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
-{#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
-{#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
-{#                                                                            aria-hidden="true"></i> by <a#}
-{#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
-{#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
-{#                    </p>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    {#    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">#}
+    {#        <div class="container">#}
+    {#            <div class="footer_border"></div>#}
+    {#            <div class="row">#}
+    {#                <div class="col-xl-12">#}
+    {#                    <p class="copy_right text-center">#}
+    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+    {#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
+    {#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
+    {#                                                                            aria-hidden="true"></i> by <a#}
+    {#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
+    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+    {#                    </p>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
 </footer>
 <!--/ footer end  -->
 
