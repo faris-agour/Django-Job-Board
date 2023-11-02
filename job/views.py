@@ -1,13 +1,15 @@
-from django.shortcuts import redirect, render
-from .models import Job
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from .forms import ApplyForm, PostJop
+from django.shortcuts import redirect, render
 from django.urls import reverse
+
+from .forms import ApplyForm, PostJop
+from .models import Job
 
 
 def jobs(request):
     jobs = Job.objects.all()
-    paginator = Paginator(jobs, 2)  # Show 25 contacts per page.
+    paginator = Paginator(jobs, 3)  # Show 25 contacts per page.
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     context = {'jobs': page_obj, 'j': jobs}
@@ -30,6 +32,7 @@ def job_details(request, slug):
     return render(request, "job/job_details.html", context)
 
 
+@login_required
 def add_job(request):
     if request.method == "POST":
 

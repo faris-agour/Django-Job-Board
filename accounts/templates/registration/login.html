@@ -16,32 +16,35 @@
     </div>
     <!--/ bradcam_area  -->
 
- <div class="job_details_area">
+    <div class="job_details_area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 mx-auto" >
+                <div class="col-lg-10 mx-auto">
                     <div class="apply_job_form white-bg">
                         {% if form.errors %}
-        <p style="text-align: center;color: darkred">Your username and password didn't match. Please try again.</p>
-    {% endif %}
+                            <p style="text-align: center;color: darkred">Your username and password didn't match. Please
+                                try again.</p>
+                        {% endif %}
 
-    {% if next %}
-        {% if user.is_authenticated %}
-            <p style="text-align: center;color: darkred">Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.</p>
-        {% else %}
-            <p style="text-align: center;color: darkred">Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
-                            <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button class="boxed-btn3 w-100" type="submit">Log in</button>
-        {% endbuttons %}
-        <input type="hidden" name="next" value="{{ next }}">
-    </form>
+                        {% if next %}
+                            {% if user.is_authenticated %}
+                                <p style="text-align: center;color: darkred">Your account doesn't have access to this
+                                    page. To proceed,
+                                    please login with an account that has access.</p>
+                            {% else %}
+                                <p style="text-align: center;color: darkred">Please login to see this page.</p>
+                            {% endif %}
+                        {% endif %}
+                        <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            {% buttons %}
+                                <button class="boxed-btn3 w-100" type="submit">Log in</button>
+                            {% endbuttons %}
+                            <input type="hidden" name="next" value="{{ next }}">
+                        </form>
                         <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+                        <p>Don't have an account ? <a href="{% url 'accounts:signup' %}">Sign up</a></p>
                     </div>
                 </div>
             </div>
