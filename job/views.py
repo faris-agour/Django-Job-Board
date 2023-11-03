@@ -3,16 +3,21 @@ from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
+from .filters import JobFilter
 from .forms import ApplyForm, PostJop
 from .models import Job
 
 
 def jobs(request):
     jobs = Job.objects.all()
+
+    jobfilter = JobFilter(request.GET, queryset=jobs)
+    jobs = jobfilter.qs
+
     paginator = Paginator(jobs, 3)  # Show 25 contacts per page.
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
-    context = {'jobs': page_obj, 'j': jobs}
+    context = {'jobs': page_obj, 'j': jobs, "filter": jobfilter}
     return render(request, "job/jobs.html", context)
 
 
