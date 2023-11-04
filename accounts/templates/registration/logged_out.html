@@ -27,8 +27,9 @@
             <button class="boxed-btn3 w-100" type="submit">Log in</button>
         {% endbuttons %}
     </form>
-                        <form method="post" action="{% url 'login' %}">
+                        <form method="post" action="{% url 'accounts:signup' %}">
         {% buttons %}
+            {% csrf_token %}
             <button class="boxed-btn w-100" type="submit">Sign up</button>
         {% endbuttons %}
     </form>
