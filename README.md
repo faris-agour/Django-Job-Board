@@ -15,10 +15,10 @@ Django-Job-Board is an advanced job board web application that uses the Django f
 ## Screenshots
 
 <!-- Add screenshots or images showcasing the project's interface -->
-<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/6f56a4b2-b053-4feb-8b0b-e28af453acaa" width="500">
-<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/2e00a511-beee-4f53-a508-471abbfe018a" width="500">
-<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/81f0e77d-74f6-4162-9d4c-7441df18b8cc" width="500">
-<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/1979d622-830f-4bad-a2a1-52c30671ac18" width="500">
+<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/6f56a4b2-b053-4feb-8b0b-e28af453acaa" width="450">
+<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/2e00a511-beee-4f53-a508-471abbfe018a" width="450">
+<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/81f0e77d-74f6-4162-9d4c-7441df18b8cc" width="450">
+<img src="https://github.com/fares-agour/Django-Job-Board/assets/116801554/1979d622-830f-4bad-a2a1-52c30671ac18" width="450">
 
 
 
