@@ -28,14 +28,28 @@ Django-Job-Board is an advanced job board web application that uses the Django f
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/your-username/Django-Job-Board.git
+   cd django-job-board
 
-2. **Install Dependencies in your Environment:**
+2. **Create a virtual environment and activate it:**
+    ```bash
+    python -m venv env
+    source env/bin/activate   # On Windows, use `env\Scripts\activate`
+    
+3. **Install the dependencies:**
     ```bash
     pip install -r requirements.txt
     
-3. **Run Migrations:**
+4. **Set up the database:**
     ```bash
+    python manage.py makemigrations
     python manage.py migrate
-3. **Run the Application:**
+
+5. **Create a superuser:**
+   ```bash
+   python manage.py createsuperuser
+
+6. **Run the development server:**
     ```bash
     python manage.py runserver
+    
+
