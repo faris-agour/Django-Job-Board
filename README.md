@@ -51,5 +51,3 @@ Django-Job-Board is an advanced job board web application that uses the Django f
 6. **Run the development server:**
     ```bash
     python manage.py runserver
-    
-
