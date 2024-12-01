@@ -28,12 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '18.153.123.134',
+    '127.0.0.1',
 
 ]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
