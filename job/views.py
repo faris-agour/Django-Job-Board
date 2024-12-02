@@ -14,7 +14,7 @@ def jobs(request):
     jobfilter = JobFilter(request.GET, queryset=jobs)
     jobs = jobfilter.qs
 
-    paginator = Paginator(jobs, 3)  # Show 25 contacts per page.
+    paginator = Paginator(jobs, 3)  # Show 3 contacts per page.
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     context = {'jobs': page_obj, 'j': jobs, "filter": jobfilter}
@@ -45,6 +45,8 @@ def add_job(request):
         if form.is_valid():
             form = form.save(commit=False)  # dont save in db yet
             form.owner = request.user
+            if not form.location:
+                form.location = Location.objects.get(name="Egypt")
             form.save()
             return redirect(reverse('jobs:job_list'))
     else:

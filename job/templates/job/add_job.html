@@ -21,19 +21,30 @@
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <div class="apply_job_form white-bg">
-                        <h4 style="text-align: center">Add a job</h4>
-                        <form method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {% bootstrap_form form %}
-                            {% buttons %}
-                                <button class="boxed-btn3 w-100" type="submit">Post Now</button>
-                            {% endbuttons %}
+                       <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        {% bootstrap_form form %}
+    </div>
 
-                        </form>
+    <div class="form-group">
+        {% buttons %}
+        <button class="boxed-btn3 w-100" type="submit">Post Now</button>
+        {% endbuttons %}
+    </div>
+</form>
+
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+
+    <!-- Include jQuery and Select2 JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+
+
 {% endblock body %}

@@ -42,9 +42,8 @@ class Job(models.Model):  # table
     # create model first then migrate and add row the add this field that you had id = 1 use it when you run
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     image = models.ImageField(upload_to=img_upload)
-    slug = models.SlugField(blank=True, null=True)
-
-    # location = models.CharField(max_length=104)
+    slug = models.SlugField(unique=True,blank=True, null=True)
+    location = models.ForeignKey('Location', on_delete=models.CASCADE)
 
     # we will override save to get slug
     def save(self, *args, **kwargs):
@@ -60,6 +59,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+class Location(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
 class Apply(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='apply_job')
     name = models.CharField(max_length=100)

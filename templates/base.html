@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {#    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">#}
-    {#    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
 
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
@@ -55,6 +55,24 @@
 
             text-decoration: underline;
         }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px; /* Space between each element inside the form */
+        }
+
+        /* Example CSS to highlight the active page */
+        .pagination_wrap ul li.active a {
+            font-weight: bold; /* Makes the active page bold */
+            background-color: #007bff; /* Adds a background color */
+            color: white; /* Changes text color */
+        }
+
+        .pagination_wrap ul li.active a span {
+            font-weight: bold;
+        }
+
 
     </style>
 
@@ -94,13 +112,13 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 {% if request.user.is_authenticated %}
-                                    <div class="phone_num d-none d-xl-block">
-                                        <a href="{% url 'accounts:profile' %}">{{ request.user.username }}</a>
-                                    </div>
+                                <div class="phone_num d-none d-xl-block">
+                                    <a href="{% url 'accounts:profile' %}">{{ request.user.username }}</a>
+                                </div>
                                 {% else %}
-                                    <div class="phone_num d-none d-xl-block">
-                                        <a href="{% url 'login' %}">Log in</a>
-                                    </div>
+                                <div class="phone_num d-none d-xl-block">
+                                    <a href="{% url 'login' %}">Log in</a>
+                                </div>
                                 {% endif %}
 
                                 <div class="d-none d-lg-block">
@@ -206,23 +224,43 @@
             </div>
         </div>
     </div>
-    {#    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">#}
-    {#        <div class="container">#}
-    {#            <div class="footer_border"></div>#}
-    {#            <div class="row">#}
-    {#                <div class="col-xl-12">#}
-    {#                    <p class="copy_right text-center">#}
-    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
-    {#                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>#}
-    {#                        All rights reserved | This template is made with <i class="fa fa-heart-o"#}
-    {#                                                                            aria-hidden="true"></i> by <a#}
-    {#                            href="https://colorlib.com" target="_blank">Colorlib</a>#}
-    {#                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
-    {#                    </p>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </div>#}
+    {#
+    <div class="copy-right_text wow fadeInUp" data-wow-duration="1.4s" data-wow-delay=".3s">#}
+        {#
+        <div class="container">#}
+            {#
+            <div class="footer_border"></div>
+            #}
+            {#
+            <div class="row">#}
+                {#
+                <div class="col-xl-12">#}
+                    {#
+                    <p class="copy_right text-center">#}
+                        {#
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+                        {# Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        #}
+                        {# All rights reserved | This template is made with <i class="fa fa-heart-o" #}
+                                                                               {# aria-hidden="true"></i> by <a#}
+                        {# href="https://colorlib.com" target="_blank">Colorlib</a>#}
+                        {#
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+                        {#
+                    </p>
+                    #}
+                    {#
+                </div>
+                #}
+                {#
+            </div>
+            #}
+            {#
+        </div>
+        #}
+        {#
+    </div>
+    #}
 </footer>
 <!--/ footer end  -->
 
@@ -244,7 +282,7 @@
 <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
 <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
 <script src="{% static 'js/plugins.js' %}"></script>
-{#<!-- <script src="{% static 'js/gijgo.min.js' %}"></script> -->#}
+{#<!-- <script src="{% static 'js/gijgo.min.js' %}"></script> --> #}
 <script src="{% static 'js/range.js' %}"></script>
 <!--contact js-->
 <script src="{% static 'js/contact.js' %}"></script>
